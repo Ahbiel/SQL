@@ -4,11 +4,14 @@ CREATE TABLE estudos.users (
 	last_name varchar(150) NULL,
 	email varchar(255) NOT NULL,
 	password_hash varchar(255) NOT NULL,
-    
+    created_at DATETIME DEFAULT now NULL,
+    updated_at DATETIME DEFAULT now on update now() NULL
+	
 	CONSTRAINT primary_key_id PRIMARY KEY (id),
 	CONSTRAINT unique_email UNIQUE KEY (email),
 	CONSTRAINT unique_password_hash UNIQUE KEY (password_hash)
 )
+
 CREATE TABLE estudos.users (
 	id INT auto_increment NOT NULL,
 	name varchar(150) NOT NULL,
